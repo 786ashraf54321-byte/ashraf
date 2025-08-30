@@ -1,0 +1,6 @@
+# Calculator App Dependencies
+# Note: tkinter is included with Python standard library, no external packages needed
+# This file is provided for documentation purposes
+
+# Python version requirement
+# Python 3.6+ recommended for best compatibility
