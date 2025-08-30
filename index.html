@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CareerConnect — Jobs, Live Classes, Resume Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <i class="ri-briefcase-4-fill"></i>
+        <span>CareerConnect</span>
+      </div>
+      <div class="search">
+        <i class="ri-search-line"></i>
+        <input id="globalSearch" type="search" placeholder="Search jobs, companies, courses..." />
+      </div>
+      <nav class="topnav">
+        <button class="nav-btn is-active" data-target="#homeSection"><i class="ri-home-5-line"></i><span>Home</span></button>
+        <button class="nav-btn" data-target="#jobsSection"><i class="ri-briefcase-line"></i><span>Jobs</span></button>
+        <button class="nav-btn" data-target="#classesSection"><i class="ri-live-line"></i><span>Live Classes</span></button>
+        <button class="nav-btn" data-target="#resumeSection"><i class="ri-file-upload-line"></i><span>Resume</span></button>
+        <button class="nav-btn" data-target="#profileSection"><i class="ri-user-3-line"></i><span>Profile</span></button>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar-left">
+        <section class="card profile-card">
+          <div class="avatar">SC</div>
+          <div class="profile-meta">
+            <h2 class="profile-name">Student Candidate</h2>
+            <p class="muted">Aspiring Software Engineer</p>
+          </div>
+          <div class="quick-actions">
+            <button id="openResumeBuilder" class="btn btn-secondary">
+              <i class="ri-magic-line"></i> Build Resume @ ₹299
+            </button>
+            <button class="btn btn-ghost" data-target="#resumeSection">
+              <i class="ri-file-upload-line"></i> Upload Resume
+            </button>
+          </div>
+        </section>
+
+        <section class="card helpful-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#jobsSection">Explore Jobs</a></li>
+            <li><a href="#classesSection">Enroll in Live Classes</a></li>
+            <li><a href="#resumeSection">Resume Tools</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section id="homeSection" class="content">
+        <section class="card highlight">
+          <div class="highlight-body">
+            <h1>Find your next opportunity</h1>
+            <p class="muted">Discover jobs, enroll in live classes (₹1199), and build a standout resume (₹299).</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#jobsSection"><i class="ri-briefcase-line"></i> Browse Jobs</a>
+              <a class="btn btn-secondary" href="#classesSection"><i class="ri-live-line"></i> Live Classes @ ₹1199</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="card grid grid-2">
+          <div class="mini-card">
+            <i class="ri-file-upload-line big"></i>
+            <h3>Upload Resume</h3>
+            <p class="muted">Let recruiters find you faster.</p>
+            <a href="#resumeSection" class="btn btn-ghost">Go to Resume</a>
+          </div>
+          <div class="mini-card">
+            <i class="ri-magic-line big"></i>
+            <h3>Resume Builder</h3>
+            <p class="muted">Create a polished resume for just ₹299.</p>
+            <button id="openResumeBuilder2" class="btn btn-ghost">Start Building</button>
+          </div>
+        </section>
+      </section>
+
+      <section id="jobsSection" class="content is-hidden">
+        <div class="section-header">
+          <h2><i class="ri-briefcase-line"></i> Jobs</h2>
+          <div class="filters">
+            <select id="filterLocation" aria-label="Location">
+              <option value="">Location</option>
+              <option>Remote</option>
+              <option>Bengaluru</option>
+              <option>Hyderabad</option>
+              <option>Pune</option>
+              <option>Delhi NCR</option>
+            </select>
+            <select id="filterType" aria-label="Job Type">
+              <option value="">Type</option>
+              <option>Full-time</option>
+              <option>Internship</option>
+              <option>Contract</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="jobsList" class="list"></div>
+      </section>
+
+      <section id="classesSection" class="content is-hidden">
+        <div class="section-header">
+          <h2><i class="ri-live-line"></i> Live Classes — Enroll @ ₹1199</h2>
+        </div>
+        <div id="classesList" class="grid grid-3"></div>
+      </section>
+
+      <section id="resumeSection" class="content is-hidden">
+        <div class="section-header">
+          <h2><i class="ri-file-upload-line"></i> Resume Tools</h2>
+        </div>
+
+        <section class="card upload-card">
+          <div class="upload-icon">
+            <i class="ri-upload-2-line"></i>
+          </div>
+          <div class="upload-body">
+            <h3>Upload your resume</h3>
+            <p class="muted">PDF, DOCX up to 5 MB</p>
+            <input id="resumeInput" type="file" accept=".pdf,.doc,.docx" hidden />
+            <button id="resumeUploadBtn" class="btn btn-primary"><i class="ri-file-upload-line"></i> Select File</button>
+            <div id="resumeStatus" class="status"></div>
+          </div>
+        </section>
+
+        <section class="card builder-card">
+          <div class="builder-body">
+            <i class="ri-magic-line big"></i>
+            <div>
+              <h3>Resume Builder</h3>
+              <p class="muted">Create a professional resume in minutes. One-time access @ ₹299.</p>
+            </div>
+          </div>
+          <button id="openResumeBuilder3" class="btn btn-secondary"><i class="ri-shopping-bag-3-line"></i> Enroll @ ₹299</button>
+        </section>
+      </section>
+
+      <aside class="sidebar-right">
+        <section class="card news-card">
+          <h3>Trending</h3>
+          <ul>
+            <li><i class="ri-fire-line"></i> Product internships are hot this season</li>
+            <li><i class="ri-fire-line"></i> Python and AI skills are in demand</li>
+            <li><i class="ri-fire-line"></i> Remote-first roles keep growing</li>
+          </ul>
+        </section>
+
+        <section class="card help-card">
+          <h3>Need Help?</h3>
+          <p class="muted">Chat with our support team for resume and enrollment queries.</p>
+          <button class="btn btn-ghost"><i class="ri-chat-1-line"></i> Contact Support</button>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> CareerConnect</div>
+      <div class="links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">About</a>
+      </div>
+    </footer>
+
+    <div id="modalOverlay" class="modal-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal">
+        <button id="modalClose" class="modal-close" aria-label="Close"><i class="ri-close-line"></i></button>
+        <div class="modal-header">
+          <h3 id="modalTitle">Resume Builder — ₹299</h3>
+        </div>
+        <div class="modal-body">
+          <form id="builderForm" class="form">
+            <label>
+              Full Name
+              <input name="fullName" type="text" required placeholder="Your name" />
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" required placeholder="you@example.com" />
+            </label>
+            <label>
+              Phone
+              <input name="phone" type="tel" required placeholder="99999 99999" />
+            </label>
+            <label>
+              Experience (years)
+              <input name="experience" type="number" min="0" max="50" step="0.5" required />
+            </label>
+            <label>
+              Summary
+              <textarea name="summary" rows="3" placeholder="Brief professional summary..."></textarea>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary"><i class="ri-money-rupee-circle-line"></i> Pay ₹299 & Continue</button>
+            </div>
+          </form>
+          <div id="builderSuccess" class="success is-hidden">
+            <i class="ri-checkbox-circle-line"></i>
+            <div>
+              <h4>Enrollment confirmed</h4>
+              <p class="muted">Your access to the Resume Builder is active. Check your email for details.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast is-hidden"></div>
+
+    <script src="./app.js"></script>
+  </body>
+  </html>
+
