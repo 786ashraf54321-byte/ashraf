@@ -1,0 +1,2 @@
+# No third-party packages required.
+# Tkinter ships with Python but may require OS-level Tk installation (e.g., python3-tk on Debian/Ubuntu).
